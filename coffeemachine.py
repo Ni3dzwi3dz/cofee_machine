@@ -4,20 +4,19 @@ coffee_ = {'espresso' : 16, 'latte' : 20 , 'cappuccino' : 12 }
 price_ = {'espresso' : 4, 'latte' : 7 , 'cappuccino' : 6}
 
 
-
-class CoffeeMachine():
+class CoffeeMachine:
       
-    def __init__(self, water,milk,coffee, cups, money):
-        self.water = water
-        self.milk = milk
-        self.coffee = coffee
-        self.cups = cups
-        self.money = money
+    def __init__(self, water : int, milk : int, coffee : int, cups : int, money : int) -> None:
+        self.water : int = water
+        self.milk : int = milk
+        self.coffee : int = coffee
+        self.cups : int = cups
+        self.money : int = money
           
-    def __repr__(self):
+    def __repr__(self) -> str:
         return  f"The coffee machine has: \n {self.water} of water\n {self.milk} of milk\n {self.coffee} of coffee beans\n {self.cups} of disposable cups\n {self.money} of money"
                 
-    def make(self,order):
+    def make(self,order : str) -> bool:
         
         if (self.water >= water_[order]) and (self.milk >= milk_[order]) and (self.coffee >= coffee_[order]) and self.cups > 0:
             print('I have enough resources, making you a coffee!')
@@ -39,7 +38,7 @@ class CoffeeMachine():
                 
         return True
                 
-    def buy(self):
+    def buy(self) -> bool:
         order = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:")
         
         if order == '1':
@@ -53,18 +52,18 @@ class CoffeeMachine():
         
         return True
         
-    def fill(self):
+    def fill(self) -> None :
         self.water += int(input("Write how many ml of water do you want to add:"))
         self.milk  += int(input("Write how many ml of milk do you want to add:"))
         self.coffee+= int(input("Write how many grams of coffee beans do you want to add:"))
         self.cups  += int(input("Write how many disposable cups of coffee do you want to add:"))
         
-    def take(self):
+    def take(self) -> None:
         print(f"I gave you ${self.money}")
-        self.money = 0
+        self.money : int = 0
            
                     
-    def run(self):
+    def run(self) -> None :
         
         running = True
         
@@ -85,7 +84,7 @@ class CoffeeMachine():
                 
         
           
-if __name__ = "__main__":
+if __name__ == "__main__":
   machine = CoffeeMachine(400,540,120,9,550)
   machine.run()    
     
